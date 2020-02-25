@@ -1,5 +1,9 @@
 package org.launchcode.techjobs_oo;
 
+import org.junit.Test;
+
+import java.util.Objects;
+
 public class Job {
 
     private int id;
@@ -11,6 +15,88 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    //public int getId() {
+    //return id;
+    //} //Should this return id? ... 3) Job Class #1???
+
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
+        //each variable
+    }
+
+    //Beginning of #3
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+    //End of 3 DOES IT CALL THE "FIRST" IN ORDER TO INITIALIZE THE ID FIELD?
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id &&
+                Objects.equals(name, job.name) &&
+                Objects.equals(employer, job.employer) &&
+                Objects.equals(location, job.location) &&
+                Objects.equals(positionType, job.positionType) &&
+                Objects.equals(coreCompetency, job.coreCompetency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
@@ -20,4 +106,35 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+@Override
+    public String toString() {
+
+        if (name.equals("")) {
+            name.equals("Data not available");
+        }
+
+        coreCompetency.getValue().equals(""); //take these out of the if's
+        if (coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue("Data not available");
+        }
+        employer.getValue().equals("");
+        if (employer.getValue().equals("")) {
+            employer.setValue("Data not available");
+        }
+        location.getValue().equals("");
+        if (location.getValue().equals("")) {
+            location.setValue("Data not available");
+        }
+        positionType.getValue().equals("");
+        if (positionType.getValue().equals("")) {
+            positionType.setValue("Data not available");
+        }
+        return "";
+
+    }
+//
+//    public String toString() {
+//
+//
+//    }
 }
