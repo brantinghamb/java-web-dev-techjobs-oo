@@ -1,6 +1,8 @@
 package org.launchcode.techjobs_oo;
 
-import org.junit.Test;
+
+
+//import org.junit.Test;
 
 import java.util.Objects;
 
@@ -109,27 +111,31 @@ public class Job {
 @Override
     public String toString() {
 
+
         if (name.equals("")) {
-            name.equals("Data not available");
+            name ="Data not available";
         }
 
-        coreCompetency.getValue().equals(""); //take these out of the if's
         if (coreCompetency.getValue().equals("")) {
             coreCompetency.setValue("Data not available");
         }
-        employer.getValue().equals("");
         if (employer.getValue().equals("")) {
             employer.setValue("Data not available");
         }
-        location.getValue().equals("");
+
         if (location.getValue().equals("")) {
             location.setValue("Data not available");
         }
-        positionType.getValue().equals("");
+
         if (positionType.getValue().equals("")) {
             positionType.setValue("Data not available");
         }
-        return "";
+        return  "ID: " + this.id + "\n" +
+                "Name: " + this.name + "\n" +
+                "Employer: " + this.employer + "\n" +
+                "Location: " + this.location + "\n" +
+                "Position Type: " + this.positionType + "\n" +
+                "Core Competency: " + this.coreCompetency;
 
     }
 //
